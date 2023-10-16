@@ -6,7 +6,7 @@ import Card from '../UI/Card';
 
 
 export default function Item(props) {
-  //props access all the data that is already kept input to the app,js
+  //props access all the data that is already kept input to the app.js
   // const expensedate = new Date(2021,2,28);
   // const expensetitle='car insurance';
   // const expenseamount=3000;
@@ -15,11 +15,11 @@ export default function Item(props) {
   const [title ,setTitle] = useState(props.title);
 
   //let title=props.title;
+  const[isdelete,setisdeleted]=useState(false);
 
   const func=()=>{
      //alert('HELLLO! you enetered correctly!!!');
-     setTitle('updated!');
-    alert(title);
+     setisdeleted(true);
   };
 
 
@@ -30,7 +30,7 @@ export default function Item(props) {
         <h2>{props.title}</h2>
       <div className="expense-item__price">₹{props.amount}</div>
       </div>
-      <button onClick={func}>Change Title</button>
+      <button onClick={func}>Delete</button>
     </Card>
   );
 }
