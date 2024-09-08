@@ -1,7 +1,5 @@
-//import logo from './logo.svg';
-import React,{useState} from 'react';
+import React, { useState } from "react";
 import Expense from "./components/Expenses/expenses.js";
-//import ExpensesFilter from "./components/NewExpenses/ExpenseFilter.js";
 import NewExpense from "./components/NewExpenses/newExpense.js";
 
 const INTIALEXPENSES = [
@@ -10,7 +8,7 @@ const INTIALEXPENSES = [
     title: "sample",
     amount: 94.12,
     date: new Date(2021, 7, 14),
-  }, 
+  },
   {
     id: "e2",
     title: "New TV",
@@ -31,23 +29,30 @@ const INTIALEXPENSES = [
   },
 ];
 
-const App=()=> {
-    const[expenses,setExpenses]= useState(INTIALEXPENSES);
+const App = () => {
+  const [expenses, setExpenses] = useState(INTIALEXPENSES);
+
   const addExpenseHandler = (expense) => {
-    setExpenses(prevExpenses=>{
-      return [expense,...prevExpenses];
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
     });
   };
 
-  
+  const deleteExpenseHandler = (expenseId) => {
+    setExpenses((prevExpenses) => {
+      return prevExpenses.filter((expense) => expense.id !== expenseId);
+    });
+  };
+
   return (
     <div className="App">
       <div>
         <NewExpense onaddExpenseHandler={addExpenseHandler} />
         {/*now this expense handler collects information from onaddexpensehandler(already used in newexpense.js) and displays*/}
       </div>
-      <Expense items={expenses} />
-      </div>
+      <Expense items={expenses} onDelete={deleteExpenseHandler} />
+    </div>
   );
-  }
+};
+
 export default App;
