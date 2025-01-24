@@ -8,7 +8,7 @@ let barfilledheight='0%';
 
 
 if(props.maxValue>0){
-    barfilledheight=Math.round((props.value/props.maxValue)*100) +  '%';
+    barfilledheight=Math.round((props.value/props.maxValue)*100) +  '%'; // adds that rem value to the height
 }
 
   return (

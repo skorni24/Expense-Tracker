@@ -29,7 +29,7 @@ const Expenseform = (props) => {
 //     entereddate:e.target.value,
 // });
 // };
-
+  const presentDate= new Date();
   const titlechange = (event) => {
     setenteredtitle(event.target.value);
     //alert(event.target.value);
@@ -83,7 +83,7 @@ const Expenseform = (props) => {
             <input
               type="date"
               min="2020-12-24"
-              max="2023-02-14"
+              max={presentDate} //this is the way to get the current date
               value={entereddate}
               onChange={datechange}
             />

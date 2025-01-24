@@ -17,7 +17,6 @@ export default function Item(props) {
   const [isdelete, setisdeleted] = useState(false);
 
   const func = () => {
-    //alert('HELLLO! you enetered correctly!!!');
     props.onDelete(props.id);
   };
 
